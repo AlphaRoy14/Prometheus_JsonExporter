@@ -1,0 +1,13 @@
+[Unit]
+Description=Json exporter for whatsapp clients
+After=network-online.target
+
+[Service]
+User=root
+Restart=on-failure
+
+#Change the port and api_endpoint
+ExecStart=/usr/bin/python ~/Prometheus_JsonExporter/json_exporter.py 8003 <api_endpoint> &> /dev/null
+
+[Install]
+WantedBy=multi-user.target
