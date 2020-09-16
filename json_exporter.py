@@ -24,7 +24,7 @@ class JsonCollector:
             )
             g.add_metric(labels=[str(dealer["dealer"]), "status"], value=self._get_status(dealer["status"]))
             g.add_metric(
-                labels=[str(dealer["dealer"]), "outoundMessages"], value=dealer["totalOutboundMessages"]
+                labels=[str(dealer["dealer"]), "outboundMessages"], value=dealer["totalOutboundMessages"]
             )
             yield g
 
