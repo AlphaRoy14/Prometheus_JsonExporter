@@ -5,25 +5,31 @@ import sys
 import requests
 import time
 
+
 class JsonCollector:
     def __init__(self, endpoint):
         self.endpoint = endpoint
 
     def _get_status(self, status):
-        if status == 'authenticated':
+        if status == "authenticated":
             return 1
         return 0
 
     def collect(self):
-        response = json.loads(requests.get(self.endpoint).content.decode('UTF-8'))
+        response = json.loads(requests.get(self.endpoint).content.decode("UTF-8"))
 
         for dealer in response:
-            g = GaugeMetricFamily("dealer_whatsapp", "status of whatsapp connection of dealers", labels=['dealerName', 'info'])
-            g.add_metric(labels=[str(dealer['dealer']), 'status'], value=self._get_status(dealer['status']))
-            g.add_metric(labels=[str(dealer['dealer']), 'outoundMessaes'], value=dealer['totalOutboundMessages'])
+            g = GaugeMetricFamily(
+                "dealer_whatsapp", "status of whatsapp connection of dealers", labels=["dealerName", "info"]
+            )
+            g.add_metric(labels=[str(dealer["dealer"]), "status"], value=self._get_status(dealer["status"]))
+            g.add_metric(
+                labels=[str(dealer["dealer"]), "outoundMessaes"], value=dealer["totalOutboundMessages"]
+            )
             yield g
 
-if __name__=='__main__':
+
+if __name__ == "__main__":
     start_http_server(int(sys.argv[1]))
     REGISTRY.register(JsonCollector(sys.argv[2]))
     while True:
