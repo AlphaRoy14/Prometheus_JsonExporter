@@ -68,13 +68,13 @@ python_info{implementation="CPython",major="3",minor="7",patchlevel="7",version=
 # HELP dealer_whatsapp status of whatsapp connection of dealers
 # TYPE dealer_whatsapp gauge
 dealer_whatsapp{dealerName="jsphyd",info="status"} 1.0
-dealer_whatsapp{dealerName="jsphyd",info="outoundMessaes"} 0.0
+dealer_whatsapp{dealerName="jsphyd",info="outboundMessages"} 0.0
 # HELP dealer_whatsapp status of whatsapp connection of dealers
 # TYPE dealer_whatsapp gauge
 dealer_whatsapp{dealerName="autofinhonda",info="status"} 1.0
-dealer_whatsapp{dealerName="autofinhonda",info="outoundMessaes"} 6.0
+dealer_whatsapp{dealerName="autofinhonda",info="outboundMessages"} 1.0
 # HELP dealer_whatsapp status of whatsapp connection of dealers
 # TYPE dealer_whatsapp gauge
 dealer_whatsapp{dealerName="orangehonda",info="status"} 0.0
-dealer_whatsapp{dealerName="orangehonda",info="outoundMessaes"} 400.0
+dealer_whatsapp{dealerName="orangehonda",info="outboundMessages"} 400.0
 ```
